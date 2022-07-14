@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  php-fpm:
+    build:
+      context: website/docker
+      dockerfile: development/php-fpm/Dockerfile
+    volumes:
+      - ./website:/app
+    environment:
+      APP_ENV: local
+      APP_DEBUG: 1
+  web:
+    build:
+      context: website/docker
+      dockerfile: development/nginx/Dockerfile
+    volumes:
+      - ./website:/app

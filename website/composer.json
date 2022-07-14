@@ -1,0 +1,14 @@
+{
+    "name": "i.luka/lamp-docker",
+    "description": "simple project with NPM (nginx, php, mariadb) docker containers + gateway nginx",
+    "type": "library",
+    "authors": [
+        {
+            "name": "i.luka"
+        }
+    ],
+    "require": {},
+    "psr4": {
+        "app\\": "/src"
+    }
+}

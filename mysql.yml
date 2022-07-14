@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  db:
+    image: mariadb:10.5
+    restart: always
+    environment:
+      #      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'true'
+      MYSQL_DATABASE: pj
+      MYSQL_USER: pj_user
+      MYSQL_PASSWORD: pj_pwd
+      MYSQL_ROOT_PASSWORD: root_pwd_pj
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+    volumes:
+      - ./data/db:/var/lib/mysql
