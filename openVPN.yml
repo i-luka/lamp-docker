@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  vpn:
+    image: kylemanna/openvpn
+    ports:
+      - "1194:1194/udp"
+    environment:
+      - OVPN_SERVER=php.site
+    volumes:
+      - C:\project\docker-nginx\openvpn\config:/etc/openvpn
+      - C:\project\docker-nginx\openvpn\config\ovpn_env.sh:/etc/openvpn/ovpn_env.sh
+      - C:\project\docker-nginx\openvpn\config\openvpn.conf:/etc/openvpn/openvpn.conf
+      - C:\project\docker-nginx\openvpn\config\pki:/etc/openvpn/pki/
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 0
+      net.ipv4.conf.all.forwarding: 1
+      net.ipv6.conf.all.forwarding: 1
